@@ -8,7 +8,7 @@ import joblib
 import pandas as pd
 
 from .data import process_data
-from .model import train_model, compute_model_metrics, inference
+from .model import train_model, compute_model_metrics, inference, evaluate_model
 import pathlib
 
 
@@ -30,6 +30,7 @@ cat_features = [
     "sex",
     "native-country",
 ]
+label = "salary"
 X_train, y_train, encoder, lb = process_data(
     train, categorical_features=cat_features, label="salary", training=True
 )
@@ -39,7 +40,7 @@ X_train, y_train, encoder, lb = process_data(
 X_test, y_test, encoder, lb = process_data(
     test,
     categorical_features=cat_features,
-    label="salary",
+    label=label,
     training=False,
     encoder=encoder,
     lb=lb,
@@ -67,3 +68,7 @@ precision, recall, fbeta = compute_model_metrics(y_test, preds)
 print(f"precision: {precision}")
 print(f"recall: {recall}")
 print(f"fbeta: {fbeta}")
+
+
+performance_df = evaluate_model(data, cat_features, label, model, encoder, lb)
+print(performance_df.head())
