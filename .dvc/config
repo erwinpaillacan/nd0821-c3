@@ -1,0 +1,4 @@
+[core]
+    remote = s3_bucket
+['remote "s3_bucket"']
+    url = s3://nd0821-c3-bucket
