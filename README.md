@@ -26,7 +26,7 @@ To use your new S3 bucket from the AWS CLI you will need to create an IAM user w
 * Give the user a name and select **Programmatic access**.
 * In the permissions selector, search for S3 and give it **AmazonS3FullAccess**
 * Tags are optional and can be skipped.
-* After reviewing your choices, click create user. 
+* After reviewing your choices, click create user.
 * Configure your AWS CLI to use the Access key ID and Secret Access key.
 
 ## GitHub Actions
