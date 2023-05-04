@@ -6,12 +6,12 @@ import joblib
 # Add code to load in the data.
 import pandas as pd
 
-from .ml.data import process_data
-from .ml.model import train_model, compute_model_metrics, inference
+from .data import process_data
+from .model import train_model, compute_model_metrics, inference
 import pathlib
 
 
-data = pd.read_csv(pathlib.Path(__file__).parent.resolve()/".."/"data"/"census.csv")
+data = pd.read_csv(pathlib.Path(__file__).parent.resolve()/".."/".."/"data"/"census.csv")
 
 
 # Optional enhancement, use K-fold cross validation instead of a train-test split.
@@ -41,7 +41,7 @@ X_test, y_test, encoder, lb = process_data(
 model = train_model(X_train, y_train)
 
 
-joblib.dump(model,(pathlib.Path(__file__).parent.resolve()/".."/"model"/"rf.joblib"))
+joblib.dump(model,(pathlib.Path(__file__).parent.resolve()/".."/".."/"data"/"model"/"rf.joblib"))
 
 preds = inference(model, X_test)
 
