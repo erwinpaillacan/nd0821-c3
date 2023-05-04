@@ -1,0 +1,4 @@
+outs:
+- md5: dbb5c460e03763cec541b9e73abc4e25
+  size: 3824313
+  path: rf.joblib
