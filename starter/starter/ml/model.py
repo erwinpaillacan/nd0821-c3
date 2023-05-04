@@ -1,5 +1,5 @@
 from sklearn.metrics import fbeta_score, precision_score, recall_score
-
+from sklearn.ensemble import RandomForestClassifier
 
 # Optional: implement hyperparameter tuning.
 def train_model(X_train, y_train):
@@ -17,8 +17,10 @@ def train_model(X_train, y_train):
     model
         Trained machine learning model.
     """
+    clf = RandomForestClassifier(max_depth=10, random_state=0)
 
-    pass
+    clf.fit(X_train, y_train)
+    return clf
 
 
 def compute_model_metrics(y, preds):
@@ -57,4 +59,4 @@ def inference(model, X):
     preds : np.array
         Predictions from the model.
     """
-    pass
+    return model.predict(X)
