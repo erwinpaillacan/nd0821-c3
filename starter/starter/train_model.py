@@ -3,8 +3,17 @@
 from sklearn.model_selection import train_test_split
 
 # Add the necessary imports for the starter code.
-
+#from .ml.data import process_data
 # Add code to load in the data.
+import pandas as pd
+
+from .ml.data import process_data
+
+import pathlib
+
+
+data = pd.read_csv(pathlib.Path(__file__).parent.resolve()/".."/"data"/"census.csv")
+
 
 # Optional enhancement, use K-fold cross validation instead of a train-test split.
 train, test = train_test_split(data, test_size=0.20)
