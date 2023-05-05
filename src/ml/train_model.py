@@ -62,6 +62,30 @@ joblib.dump(
     ),
 )
 
+joblib.dump(
+    lb,
+    (
+        pathlib.Path(__file__).parent.resolve()
+        / ".."
+        / ".."
+        / "data"
+        / "model"
+        / "lb.joblib"
+    ),
+)
+
+joblib.dump(
+    encoder,
+    (
+        pathlib.Path(__file__).parent.resolve()
+        / ".."
+        / ".."
+        / "data"
+        / "model"
+        / "encoder.joblib"
+    ),
+)
+
 preds = inference(model, X_test)
 
 precision, recall, fbeta = compute_model_metrics(y_test, preds)
