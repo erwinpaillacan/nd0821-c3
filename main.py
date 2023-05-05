@@ -12,34 +12,13 @@ app = FastAPI()
 
 def load_model():
     model = joblib.load(
-        (
-            pathlib.Path(__file__).parent.resolve()
-            / ".."
-            / ".."
-            / "data"
-            / "model"
-            / "rf.joblib"
-        )
+        (pathlib.Path(__file__).parent.resolve() / "data" / "model" / "rf.joblib")
     )
     lb = joblib.load(
-        (
-            pathlib.Path(__file__).parent.resolve()
-            / ".."
-            / ".."
-            / "data"
-            / "model"
-            / "lb.joblib"
-        )
+        (pathlib.Path(__file__).parent.resolve() / "data" / "model" / "lb.joblib")
     )
     encoder = joblib.load(
-        (
-            pathlib.Path(__file__).parent.resolve()
-            / ".."
-            / ".."
-            / "data"
-            / "model"
-            / "encoder.joblib"
-        )
+        (pathlib.Path(__file__).parent.resolve() / "data" / "model" / "encoder.joblib")
     )
     return model, lb, encoder
 
