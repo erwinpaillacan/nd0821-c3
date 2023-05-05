@@ -96,3 +96,9 @@ print(f"fbeta: {fbeta}")
 
 performance_df = evaluate_model(data, cat_features, label, model, encoder, lb)
 print(performance_df.head())
+
+
+performance_df.to_csv(
+    (pathlib.Path(__file__).parent.resolve() / ".." / ".." / "slice_output.txt"),
+    index=False,
+)
