@@ -16,9 +16,10 @@ jobs:
           aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           aws-session-token: ${{ secrets.AWS_SESSION_TOKEN }}
           aws-region: us-east-1
-      - name: Test AWS CLI
+      - name: Setting DVC and pull data
         run: |
-          aws s3 ls s3://nd0821-c3-bucket --recursive --human-readable --summarize
+          dvc remote add -d bucket_s3 s3://nd0821-c3-bucket
+          dvc pull
       - uses: actions/checkout@v3
       - name: Set up Python 3.8
         uses: actions/setup-python@v3
