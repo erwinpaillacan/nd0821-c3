@@ -1,7 +1,7 @@
 import pytest
 from fastapi.testclient import TestClient
 
-from src.endpoints.main import app, CensusData
+from main import app, CensusData
 
 
 @pytest.fixture()
