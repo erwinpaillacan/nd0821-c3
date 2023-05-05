@@ -16,10 +16,6 @@ jobs:
           aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           aws-session-token: ${{ secrets.AWS_SESSION_TOKEN }}
           aws-region: us-east-1
-      - name: Setting DVC and pull data
-        run: |
-          dvc remote add -d bucket_s3 s3://nd0821-c3-bucket
-          dvc pull
       - uses: actions/checkout@v3
       - name: Set up Python 3.8
         uses: actions/setup-python@v3
@@ -33,6 +29,10 @@ jobs:
         run: |
           conda install python=3.8
           pip install -r requirements.txt
+      - name: Setting DVC and pull data
+        run: |
+          dvc remote add -d bucket_s3 s3://nd0821-c3-bucket
+          dvc pull
       - name: Lint with flake8
         run: |
           conda install flake8
